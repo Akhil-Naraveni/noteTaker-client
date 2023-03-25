@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10%;
+    padding-top: 1%;
 }
 .form{
     background-color: white;
@@ -26,11 +26,12 @@ input{
 }
 button{
     width: 28vw;
-    height: 28px;
+    height: 34px;
     background-color: blue;
     color: white;
     border: 0px;
     margin-bottom: 8px;
     border-radius: 4px;
     margin-top: 8px;
+    font-weight: bold;
 }

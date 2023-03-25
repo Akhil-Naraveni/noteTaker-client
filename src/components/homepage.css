@@ -36,8 +36,8 @@
     margin-right: 35px;
 }
 .cardcont{
-    width: 40vw;
-    height: 50vh;
+    width: 32vw;
+    height: 60vh;
     position: fixed;
     top: 20%;
     left: 30%;
@@ -45,4 +45,5 @@
     border: 6px solid lightgrey;
     color: rgb(26, 128, 162);
     padding: 10px;
+    padding-left: 40px;
 }

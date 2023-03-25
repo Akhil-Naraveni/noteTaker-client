@@ -48,10 +48,10 @@ const Card = () =>{
             <h3>Title</h3>
             <input type="text" placeholder={selectedCard.title} value={notedata.title} onChange={(e)=> setNoteData({...notedata, title : e.target.value})} />
             <h3>Description</h3>
-            <input type="textarea" placeholder={selectedCard.description} value={notedata.description} onChange={(e)=> setNoteData({...notedata, description : e.target.value})} />
+            <input style={{height : "100px"}} type="textarea" placeholder={selectedCard.description} value={notedata.description} onChange={(e)=> setNoteData({...notedata, description : e.target.value})} />
 
-                <button onClick={handledelete}>Delete</button>
-                <button onClick={handleupdate}>Update</button>
+                <button style={{marginTop:"30px",backgroundColor :"red", height : "36px", fontSize:"18px" , fontWeight:"bold"}} onClick={handledelete}>Delete</button>
+                <button style={{backgroundColor :"orange", height : "36px", fontSize:"18px" , fontWeight:"bold"}} onClick={handleupdate}>Update</button>
         </div>
     )
 }
