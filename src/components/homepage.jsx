@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios"
 import "./homepage.css"
 import Card from "./card";
+import { Link, useNavigate } from "react-router-dom"
+
+
 export const GlobalContext = React.createContext()
 
 const Homepage = (props) =>{
@@ -40,7 +43,7 @@ const Homepage = (props) =>{
         <div id="container">
             <div className="navcontainer">
                 <span className="spanel"> Home</span>
-                <a href="/addnote"><span className="spanel">+ AddNote</span></a>
+                <Link to={"/addnote"}><span className="spanel">+ AddNote</span></Link>
                 {/* <span className="spanel">+ AddNote</span> */}
                 <span className="spanel"> DeleteAll</span>
                 <span className="spanel">Export </span>
