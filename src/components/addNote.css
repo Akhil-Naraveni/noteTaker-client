@@ -1,0 +1,13 @@
+
+.addNotecontainer{
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    margin-left: 20%;
+}
+#textarea{
+    height: 400px;
+}
