@@ -16,11 +16,12 @@ const AddNote = () => {
     const handlepost = (e) =>{
         e.preventDefault()
         axios('https://notetakerserver.onrender.com/api/v1/notes',{
-            method:"POST",
+            method:"post",
             headers:{
                 "Authorization":token
             },
-            data: JSON.stringify(usdata)
+            data: usdata
+
         })
         .then((res)=>{
             console.log(res)
@@ -41,7 +42,7 @@ const AddNote = () => {
                 <input type="text" value={usdata.title} onChange={(e) => setData({...usdata,title:e.target.value})}/>
                 <h3>Description</h3>
                 <input id="textarea" type="textarea" value={usdata.description} onChange={(e) => setData({...usdata,description:e.target.value})} /> <br/>
-                <button onClick={handlepost}> ADD NOTE +</button>
+                <button id="btn" onClick={handlepost}> ADD NOTE +</button>
             </div>
         </div>
     )
