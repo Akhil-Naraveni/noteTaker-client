@@ -15,7 +15,7 @@ const AddNote = () => {
 
     const handlepost = (e) =>{
         e.preventDefault()
-        axios('http://localhost:5000/api/v1/notes',{
+        axios('https://notetakerserver.onrender.com/api/v1/notes',{
             method:"POST",
             headers:{
                 "Authorization":token
@@ -25,7 +25,7 @@ const AddNote = () => {
         .then((res)=>{
             console.log(res)
             // fetchData()
-            if(res.length >0){
+            if(res){
                 navigate("/homepage")
             }
             

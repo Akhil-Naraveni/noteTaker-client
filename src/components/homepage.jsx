@@ -13,7 +13,7 @@ const Homepage = (props) =>{
         fetchData()
     }, [])
     function fetchData() {
-        axios('http://localhost:5000/api/v1/notes', {
+        axios('https://notetakerserver.onrender.com/api/v1/notes', {
              method: 'GET',
             headers: {
                 "Authorization": token
@@ -42,8 +42,8 @@ const Homepage = (props) =>{
                 <span className="spanel"> Home</span>
                 <a href="/addnote"><span className="spanel">+ AddNote</span></a>
                 {/* <span className="spanel">+ AddNote</span> */}
-                <span className="spanel">X DeleteAll</span>
-                <span className="spanel">Export</span>
+                <span className="spanel"> DeleteAll</span>
+                <span className="spanel">Export </span>
             </div>
             <div className="searchbarCont">
                 <input id="searchBar" type="text" placeholder="search...!" />

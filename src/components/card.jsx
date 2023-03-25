@@ -11,7 +11,7 @@ const Card = () =>{
         setInvkCard(false)
         console.log("deleted")
         console.log(selectedCard)
-        axios(`http://localhost:5000/api/v1/notes/${selectedCard._id}`, {
+        axios(`https://notetakerserver.onrender.com/api/v1/notes/${selectedCard._id}`, {
             method:"delete",
             headers:{
                 "Content-Type":"Application/json",

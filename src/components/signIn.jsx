@@ -9,7 +9,7 @@ const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/v1/login", userdata)
+        axios.post("https://notetakerserver.onrender.com/api/v1/login", userdata)
             .then(result => {
                 console.log(result)
                 localStorage.setItem("token", JSON.stringify(result.data.message.token))
