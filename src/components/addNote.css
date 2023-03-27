@@ -7,7 +7,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    padding: 20px;
+    /* padding: 20px; */
 }
 .inpcontainer{
     width: 40vw;
@@ -23,5 +23,5 @@
 .navcontainer{
     width: 100vw;
     position: fixed;
-    top: 2%;
+    top: 1%;
 }

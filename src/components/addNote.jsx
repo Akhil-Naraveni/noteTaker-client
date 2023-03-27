@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./addNote.css"
 import axios from "axios"
-import { GlobalContext } from "./homepage";
+// import { GlobalContext } from "./homepage";
 import { Link, useNavigate } from "react-router-dom"
+import { Houses, BoxArrowRight} from "react-bootstrap-icons"
+import {BookmarkPlus, Trash, FiletypePdf} from "react-bootstrap-icons"
 
 
 const AddNote = () => {
@@ -38,11 +40,11 @@ const AddNote = () => {
     return (
         <div className="addNotecontainer">
             <div className="navcontainer">
-            <Link to={"/homepage"}><span className="spanel"> Home</span></Link>
-                <Link to={"/addnote"}><span className="spanel">+ AddNote</span></Link>
+            <Link to={"/homepage"}><span className="spanel"><Houses  id="icon" size={18}/> Home</span></Link>
+                <Link to={"/addnote"}><span className="spanel"><BookmarkPlus className="icon" size={16}/> AddNote</span></Link>
                 {/* <span className="spanel">+ AddNote</span> */}
-                <span className="spanel"> DeleteAll</span>
-                <span className="spanel">Export </span>
+                <span className="spanel"><Trash className="icon" size={16} /> DeleteAll</span>
+                <span className="spanel"> <FiletypePdf size={18} /> Export </span>
             </div>
             <div className="inpcontainer">
                 <h3>Title</h3>

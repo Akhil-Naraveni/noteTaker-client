@@ -3,6 +3,10 @@ import axios from "axios"
 import "./homepage.css"
 import Card from "./card";
 import { Link, useNavigate } from "react-router-dom"
+import JsPDF from 'jspdf';
+import { Houses, BoxArrowRight} from "react-bootstrap-icons"
+import {BookmarkPlus, Trash, FiletypePdf} from "react-bootstrap-icons"
+
 
 
 export const GlobalContext = React.createContext()
@@ -32,6 +36,17 @@ const Homepage = (props) =>{
             
         })
     }
+
+    const generatePDF = () => {
+        const txt = "Are you sure, do you want to download the data"
+        if(window.confirm(txt) === true){
+        const report = new JsPDF('portrait','pt','a4');
+        report.html(document.querySelector('#notescontainer')).then(() => {
+            report.save('Notes.pdf');
+        });
+        }
+    }
+    
     const handleLogout = () =>{
         localStorage.removeItem('userdetails')
         localStorage.removeItem('token')
@@ -39,6 +54,34 @@ const Homepage = (props) =>{
         navigate("/")
 
 
+    }
+    const handleDeleteAll = () =>{
+        const txt = "Are you sure, do you want to delete the entire data"
+        if(window.confirm(txt)=== true){
+        axios('https://notetakerserver.onrender.com/api/v1/notes', {
+             method: 'DELETE',
+            headers: {
+                "Authorization": token
+            },
+            data : data
+        }).then((result) => {
+            console.log("entered Deleted data")
+            setData([])
+            fetchData()
+        }).catch((e) => {
+            console.log(e)
+            
+        })
+    }
+    }
+    const hanldeSearch = (val) =>{
+        if(val){
+        console.log(val)
+        const tempArr = data.filter((d) => { return d.title.toLowerCase().includes(val.toLowerCase())})
+        setData(tempArr)
+        }else{
+            fetchData()
+        }
     }
 
     const handleCard = (d) =>{
@@ -51,19 +94,20 @@ const Homepage = (props) =>{
         <GlobalContext.Provider value = {{selectedCard, setSelecteCard, fetchData, invkcard, setInvkCard }}>
 
         <div id="container">
+            
             <div className="navcontainer">
-            <Link to={"/homepage"}><span className="spanel"> Home</span></Link>
-                <Link to={"/addnote"}><span className="spanel">+ AddNote</span></Link>
+            <Link to={"/homepage"}><span className="spanel"><Houses  id="icon" size={18}/> Home</span></Link>
+                <Link to={"/addnote"}><span className="spanel"><BookmarkPlus className="icon" size={16}/> AddNote</span></Link>
                 {/* <span className="spanel">+ AddNote</span> */}
-                <span className="spanel"> DeleteAll</span>
-                <span className="spanel">Export </span>
-                <span onClick={handleLogout} className="spanel">Logout</span>
+                <span onClick={handleDeleteAll} className="spanel"><Trash className="icon" size={16} /> DeleteAll</span>
+                <span onClick={generatePDF} className="spanel"> <FiletypePdf size={18} /> Export </span>
+                <span id="logoutBtn" onClick={handleLogout} className="spanel"> <BoxArrowRight size={20} /> Logout</span>
             </div>
             <div className="searchbarCont">
-                <input id="searchBar" type="text" placeholder="search...!" />
+                <input id="searchBar" type="text" placeholder="search...!" onChange={(e) =>{hanldeSearch(e.target.value)}} />
             </div>
             
-            <div className="notescontainer">
+            <div id="notescontainer" className="notescontainer">
                 {
                     data.map((d) =>{
                         return (

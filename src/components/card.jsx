@@ -4,7 +4,7 @@ import { GlobalContext } from "./homepage"
 
 const Card = () =>{
 
-    const{invkcard, setInvkCard, selectedCard, setSelecteCard, fetchData} = useContext(GlobalContext)
+    const{ setInvkCard, selectedCard, fetchData} = useContext(GlobalContext)
     const token = JSON.parse(localStorage.getItem("token"));
     const [notedata, setNoteData] = useState({title:"", description:""})
     const handledelete = () =>{
@@ -38,7 +38,7 @@ const Card = () =>{
 
         })
         .then((res)=>{ 
-            console.log("entered delete")
+            console.log("entered update")
             fetchData()
         })
         .catch((e)=>console.log(e))

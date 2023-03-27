@@ -13,7 +13,7 @@ const SignUp = () =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        if(data.password == confirmPass){
+        if(data.password === confirmPass){
             setError(false)
             axios.post("https://notetakerserver.onrender.com/api/v1/register",data)
             .then(result =>{
