@@ -5,11 +5,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+}
+.inpcontainer{
     width: 40vw;
     height: 60vh;
-    margin-left: 24%;
-    margin-top: 8%;
-    padding: 20px;
 }
 #textarea{
     height: 200px;
@@ -17,4 +19,9 @@
 #btn{
     height: 32px;
     background-color: rgb(65, 62, 62);
+}
+.navcontainer{
+    width: 100vw;
+    position: fixed;
+    top: 2%;
 }

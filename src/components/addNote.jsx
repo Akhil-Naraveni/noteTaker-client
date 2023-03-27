@@ -37,6 +37,13 @@ const AddNote = () => {
     }
     return (
         <div className="addNotecontainer">
+            <div className="navcontainer">
+            <Link to={"/homepage"}><span className="spanel"> Home</span></Link>
+                <Link to={"/addnote"}><span className="spanel">+ AddNote</span></Link>
+                {/* <span className="spanel">+ AddNote</span> */}
+                <span className="spanel"> DeleteAll</span>
+                <span className="spanel">Export </span>
+            </div>
             <div className="inpcontainer">
                 <h3>Title</h3>
                 <input type="text" value={usdata.title} onChange={(e) => setData({...usdata,title:e.target.value})}/>

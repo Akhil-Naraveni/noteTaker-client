@@ -10,17 +10,17 @@ const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(ischeck){
-        axios.post("https://notetakerserver.onrender.com/api/v1/login", userdata)
-            .then(result => {
-                console.log(result)
-                localStorage.setItem("token", JSON.stringify(result.data.message.token))
-                localStorage.setItem("userdetails", JSON.stringify(result.data.message.userdetails))
-                setUserData({ email: "", password: "" })
-                navigate("/homepage")
-            }).catch((e) => {
-                console.log(e.message)
-            })
+        if (ischeck) {
+            axios.post("https://notetakerserver.onrender.com/api/v1/login", userdata)
+                .then(result => {
+                    console.log(result)
+                    localStorage.setItem("token", JSON.stringify(result.data.message.token))
+                    localStorage.setItem("userdetails", JSON.stringify(result.data.message.userdetails))
+                    setUserData({ email: "", password: "" })
+                    navigate("/homepage")
+                }).catch((e) => {
+                    console.log(e.message)
+                })
         }
     }
 

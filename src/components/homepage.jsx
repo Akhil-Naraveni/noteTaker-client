@@ -42,7 +42,7 @@ const Homepage = (props) =>{
 
         <div id="container">
             <div className="navcontainer">
-                <span className="spanel"> Home</span>
+            <Link to={"/homepage"}><span className="spanel"> Home</span></Link>
                 <Link to={"/addnote"}><span className="spanel">+ AddNote</span></Link>
                 {/* <span className="spanel">+ AddNote</span> */}
                 <span className="spanel"> DeleteAll</span>
