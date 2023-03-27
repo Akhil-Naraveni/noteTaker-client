@@ -7,18 +7,21 @@ const Login = (props) => {
     const navigate = useNavigate()
     const [userdata, setUserData] = useState({ email: "", password: "" })
     const [ischeck, setIscheck] = useState(false)
+    const [error, setError] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (ischeck) {
+        if (ischeck ) {
             axios.post("https://notetakerserver.onrender.com/api/v1/login", userdata)
                 .then(result => {
+                    setError(false)
                     console.log(result)
                     localStorage.setItem("token", JSON.stringify(result.data.message.token))
                     localStorage.setItem("userdetails", JSON.stringify(result.data.message.userdetails))
                     setUserData({ email: "", password: "" })
                     navigate("/homepage")
                 }).catch((e) => {
+                    setError(true)
                     console.log(e.message)
                 })
         }
@@ -33,6 +36,7 @@ const Login = (props) => {
                     <input type="email" placeholder="Enter Email" required value={userdata.email} onChange={(e) => setUserData({ ...userdata, email: e.target.value })} /> <br /><br />
                     <h3>Password</h3>
                     <input type="password" placeholder="password" required value={userdata.password} onChange={(e) => setUserData({ ...userdata, password: e.target.value })} /> <br /> <br />
+                    {error && <small style={{color:"red"}}> Inavlid Credentials</small>}
                     <div id="checkbox">
                         <input id="check" type="checkbox" onChange={(e) => setIscheck(e.target.checked)} />
                         <p>Remember me</p>
