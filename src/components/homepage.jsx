@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom"
 export const GlobalContext = React.createContext()
 
 const Homepage = (props) =>{
+    const navigate = useNavigate()
+
     const [data, setData] = useState([])
     const token = JSON.parse(localStorage.getItem("token"));
     const [invkcard, setInvkCard] = useState(false)
@@ -30,6 +32,14 @@ const Homepage = (props) =>{
             
         })
     }
+    const handleLogout = () =>{
+        localStorage.removeItem('userdetails')
+        localStorage.removeItem('token')
+        localStorage.clear()
+        navigate("/")
+
+
+    }
 
     const handleCard = (d) =>{
         setInvkCard(true)
@@ -47,6 +57,7 @@ const Homepage = (props) =>{
                 {/* <span className="spanel">+ AddNote</span> */}
                 <span className="spanel"> DeleteAll</span>
                 <span className="spanel">Export </span>
+                <span onClick={handleLogout} className="spanel">Logout</span>
             </div>
             <div className="searchbarCont">
                 <input id="searchBar" type="text" placeholder="search...!" />
